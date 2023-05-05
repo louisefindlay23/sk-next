@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { createClient } from "../prismicio";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { format } from "date-fns";
@@ -52,6 +52,9 @@ export default function Home({ home, posts }) {
           );
         })}
       </div>
+      <footer id="page-footer">
+        <p>© {new Date().getFullYear()} The Sock Kingdom</p>
+      </footer>
     </>
   );
 }
