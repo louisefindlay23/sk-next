@@ -12,12 +12,34 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+button {
   font-family: "Arvo", var(--system-fonts);
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
+}
+
+button {
+  border: 2px solid #000000;
+  border-radius: 5px;
+  background: #000000;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+button:hover {
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+  color: #000000;
+  cursor: not-allowed;
 }
 
 li {
@@ -30,6 +52,7 @@ li::marker {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 time {
@@ -37,81 +60,11 @@ time {
 }
 
 /* Site Styles */
-.site {
+#app {
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* Content Box Styles */
-#box-container > div,
-#box-container > article {
-  display: flex;
-  justify-content: space-around;
-  margin: 3rem 0;
-  padding: 1rem 3rem;
-  border: 3px solid #000000;
-}
-
-#box-container > div:first-of-type,
-#box-container > article:first-of-type {
-  margin-top: 1rem;
-}
-
-#box-container > div:last-of-type,
-#box-container > article:last-of-type {
-  margin-bottom: 2rem;
-}
-
-#box-container > h2,
-#box-container > h3 {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.box-content {
-  width: 50%;
-}
-
-.box-content h4 {
-  margin-top: 0;
-}
-
-.box-image {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 30%;
-}
-
-.box-image img {
-  min-width: 150px;
-  object-fit: contain;
-}
-
-/* Post Styles */
-#post-meta img {
-  width: 100%;
-  height: 300px;
-  margin: 1rem 0 1rem 0;
-  object-fit: cover;
-}
-
-/* Page Header Styles */
-#page-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 5px solid #000000;
-}
-
-/* Nav Styles */
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-}
-
-/* Page Footer Styles */
-#page-footer {
-  font-weight: bold;
-  text-align: center;
+.page h2 {
+  text-align: left;
 }

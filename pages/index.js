@@ -6,7 +6,7 @@ import RecentPostsSlice from "components/slices/RecentPosts/RecentPosts";
 import { createClient } from "../prismicio";
 import { SliceZone } from "@prismicio/react";
 
-export default function Home({ home }) {
+export default function Home({ home, recentPosts }) {
   const components = {
     text: TextSlice,
     recent_posts: RecentPostsSlice,
@@ -14,7 +14,11 @@ export default function Home({ home }) {
   return (
     <Layout>
       <main>
-        <SliceZone slices={home.data.body} components={components} />
+        <SliceZone
+          slices={home.data.body}
+          components={components}
+          context={recentPosts}
+        />
       </main>
       <footer id="page-footer">
         <p>© {new Date().getFullYear()} The Sock Kingdom</p>
@@ -25,14 +29,16 @@ export default function Home({ home }) {
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
-  const [home, posts] = await Promise.all([
+  const [home, recentPosts] = await Promise.all([
     client.getSingle("home"),
-    client.getAllByType("posts"),
+    client.getAllByType("posts", {
+      pageSize: 3,
+    }),
   ]);
   return {
     props: {
       home,
-      posts,
+      recentPosts,
     },
   };
 }
