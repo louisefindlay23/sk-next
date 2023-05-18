@@ -3,7 +3,7 @@ import { Layout } from "components";
 import TextSlice from "components/slices/Text/Text";
 import RecentPostsSlice from "components/slices/RecentPosts/RecentPosts";
 
-import { createClient } from "../prismicio";
+import { createClient } from "prismicio";
 import { SliceZone } from "@prismicio/react";
 
 export default function Home({ home, recentPosts }) {
