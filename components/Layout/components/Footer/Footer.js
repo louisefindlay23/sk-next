@@ -1,7 +1,12 @@
+import styles from "./Footer.module.css";
+
 export default function Footer() {
+  const siteTitle = "The Sock Kingdom";
   return (
-    <footer>
-      <h4>The Sock Kingdom</h4>
+    <footer className={styles.pageFooter}>
+      <p>
+        © {new Date().getFullYear()} {siteTitle}
+      </p>
     </footer>
   );
 }

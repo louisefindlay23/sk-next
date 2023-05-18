@@ -18,9 +18,6 @@ export default function Home({ home, recentPosts }) {
           context={recentPosts}
         />
       </main>
-      <footer id="page-footer">
-        <p>© {new Date().getFullYear()} The Sock Kingdom</p>
-      </footer>
     </Layout>
   );
 }
