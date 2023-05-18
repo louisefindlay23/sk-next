@@ -1,7 +1,5 @@
 import { Layout } from "components";
-
-import TextSlice from "components/slices/Text/Text";
-import RecentPostsSlice from "components/slices/RecentPosts/RecentPosts";
+import { RecentPostsSlice, TextSlice } from "components/slices";
 
 import { createClient } from "prismicio";
 import { SliceZone } from "@prismicio/react";
