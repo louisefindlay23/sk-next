@@ -1,6 +1,7 @@
-import styles from "./Footer.module.css";
 import { useContext } from "react";
 import { SiteContext } from "context/SiteContext";
+
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   const siteTitle = useContext(SiteContext);

@@ -1,7 +1,7 @@
-import { RecentPostsSlice, TextSlice } from "components/slices";
-
-import { createClient } from "prismicio";
 import { SliceZone } from "@prismicio/react";
+import { createClient } from "prismicio";
+
+import { TextSlice, RecentPostsSlice } from "components/slices";
 
 export default function Home({ home, recentPosts }) {
   const components = {

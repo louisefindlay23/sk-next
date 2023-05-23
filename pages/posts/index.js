@@ -1,8 +1,8 @@
-import { PostList } from "components/Layout/components";
-import { HeadingSlice } from "components/slices";
-
 import { createClient } from "prismicio";
 import { SliceZone } from "@prismicio/react";
+
+import { HeadingSlice } from "components/slices";
+import { PostList } from "components/Layout/components";
 
 import styles from "components/Layout/components/PostList/PostList.module.css";
 

@@ -1,6 +1,7 @@
-import { createClient } from "prismicio";
-import * as prismicH from "@prismicio/helpers";
 import { createContext, useEffect, useState } from "react";
+
+import * as prismicH from "@prismicio/helpers";
+import { createClient } from "prismicio";
 const client = createClient();
 
 export const SiteContext = createContext(null);

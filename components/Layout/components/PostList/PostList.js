@@ -1,6 +1,6 @@
 // TODO: Query all posts at once and then selectively return for Previous and Next buttons. Also, /page/1 etc. or ?page=1.
-import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 import Date from "components/Layout/components/Date/Date";
 import styles from "./PostList.module.css";
 

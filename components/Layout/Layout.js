@@ -1,5 +1,5 @@
-import Head from "next/head";
 import { useContext } from "react";
+import Head from "next/head";
 import { Footer, Header } from "./components";
 import { SiteContext } from "context/SiteContext";
 

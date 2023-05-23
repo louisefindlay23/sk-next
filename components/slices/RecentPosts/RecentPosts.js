@@ -1,4 +1,4 @@
-import { PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/react";
+import { PrismicRichText, PrismicLink } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 import Date from "components/Layout/components/Date/Date";
