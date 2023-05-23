@@ -7,26 +7,30 @@ import { SliceZone } from "@prismicio/react";
 
 import styles from "components/Layout/components/PostList/PostList.module.css";
 
-export default function PostPage({ postPage }) {
+export default function PostPage({ postPage, posts }) {
   const components = {
     heading: HeadingSlice,
   };
   return (
     <Layout>
-      <div className={[styles.boxContainer, styles.page]}>
+      <div className={`${styles.boxContainer} ${styles.page}`}>
         <SliceZone slices={postPage.data.body} components={components} />
+        <PostList posts={posts} />
       </div>
-      <PostList />
     </Layout>
   );
 }
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
-  const postPage = await client.getByUID("pages", "post");
+  const [postPage, posts] = await Promise.all([
+    client.getByUID("pages", "post"),
+    client.getAllByType("posts"),
+  ]);
   return {
     props: {
       postPage,
+      posts,
     },
   };
 }
