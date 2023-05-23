@@ -6,7 +6,7 @@
 /* Element Styles */
 body {
   padding: 1rem;
-  font-family: "Inter", var(--system-fonts);
+  font-family: var(--body-font), var(--system-fonts);
   line-height: 1.5;
 }
 
@@ -14,7 +14,7 @@ h1,
 h2,
 h3,
 button {
-  font-family: "Arvo", var(--system-fonts);
+  font-family: var(--heading-font), var(--system-fonts);
 }
 
 h1,
