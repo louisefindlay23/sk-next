@@ -1,7 +1,9 @@
 import { SliceZone, PrismicRichText, PrismicLink } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
+
 import { createClient } from "prismicio";
+import { getLocales } from "lib/getLocales";
 
 import {
   HeadingSlice,
@@ -57,7 +59,7 @@ export default function Post({ post }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
   const post = await client.getByUID("posts", params.uid, {
     fetchLinks: [
@@ -67,15 +69,17 @@ export async function getStaticProps({ params, previewData }) {
       "authors.author_website_link",
       "authors.author_website_text",
     ],
+    lang: locale,
   });
+  const locales = await getLocales(post, client);
   return {
-    props: { post },
+    props: { post, locales },
   };
 }
 
 export async function getStaticPaths() {
   const client = createClient();
-  const posts = await client.getAllByType("posts");
+  const posts = await client.getAllByType("posts", { lang: "*" });
   return {
     paths: posts.map((post) => prismicH.asLink(post)),
     fallback: true,

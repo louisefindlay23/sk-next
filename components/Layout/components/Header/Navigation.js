@@ -30,6 +30,7 @@ export default function Navigation() {
             );
           })}
       </ul>
+      <ul className={styles.navList}></ul>
     </nav>
   );
 }

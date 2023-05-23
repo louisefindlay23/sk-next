@@ -3,6 +3,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "prismicio";
 
 import { HeadingSlice, ImageSlice, TextSlice } from "components/slices";
+import { getLocales } from "lib/getLocales";
 
 export default function Page({ page }) {
   const components = {
@@ -17,17 +18,18 @@ export default function Page({ page }) {
   );
 }
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
-  const page = await client.getByUID("pages", params.uid);
+  const page = await client.getByUID("pages", params.uid, { lang: locale });
+  const locales = await getLocales(page, client);
   return {
-    props: { page },
+    props: { page, locales },
   };
 }
 
 export async function getStaticPaths() {
   const client = createClient();
-  const pages = await client.getAllByType("pages");
+  const pages = await client.getAllByType("pages", { lang: "*" });
   return {
     paths: pages.map((page) => prismicH.asLink(page)),
     fallback: true,

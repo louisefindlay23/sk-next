@@ -4,9 +4,9 @@ import * as prismicNext from "@prismicio/next";
 const repositoryName = "onboarding-content-management";
 
 const routes = [
-  { type: "posts", path: "/posts/:uid" },
-  { type: "home", path: "/" },
-  { type: "pages", path: "/:uid" },
+  { type: "posts", path: "/:lang?/posts/:uid" },
+  { type: "home", path: "/:lang?" },
+  { type: "pages", path: "/lang?/:uid" },
 ];
 
 export const createClient = (config = {}) => {

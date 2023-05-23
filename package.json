@@ -13,6 +13,7 @@
     "@prismicio/next": "^1.0.3",
     "@prismicio/react": "^2.5.2",
     "date-fns": "^2.30.0",
+    "flag-icons": "^6.6.6",
     "next": "13.4.1",
     "piglatin": "^0.1.2",
     "react": "18.2.0",
