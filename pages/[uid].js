@@ -2,7 +2,6 @@ import { createClient } from "prismicio";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
-import { Layout } from "components";
 import { HeadingSlice, ImageSlice, TextSlice } from "components/slices";
 
 export default function Page({ page }) {
@@ -12,11 +11,9 @@ export default function Page({ page }) {
     text: TextSlice,
   };
   return (
-    <Layout>
-      <main className="page">
-        <SliceZone slices={page.data.body} components={components} />
-      </main>
-    </Layout>
+    <main className="page">
+      <SliceZone slices={page.data.body} components={components} />
+    </main>
   );
 }
 

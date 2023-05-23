@@ -1,4 +1,3 @@
-import { Layout } from "components";
 import { RecentPostsSlice, TextSlice } from "components/slices";
 
 import { createClient } from "prismicio";
@@ -10,15 +9,13 @@ export default function Home({ home, recentPosts }) {
     recent_posts: RecentPostsSlice,
   };
   return (
-    <Layout>
-      <main>
-        <SliceZone
-          slices={home.data.body}
-          components={components}
-          context={recentPosts}
-        />
-      </main>
-    </Layout>
+    <main>
+      <SliceZone
+        slices={home.data.body}
+        components={components}
+        context={recentPosts}
+      />
+    </main>
   );
 }
 

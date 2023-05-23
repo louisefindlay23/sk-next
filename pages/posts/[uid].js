@@ -21,7 +21,7 @@ export default function Post({ post }) {
     code: CodeSlice,
   };
   return (
-    <Layout>
+    <main>
       <article>
         <h2>Post</h2>
         <SliceZone slices={post.data.body} components={components} />
@@ -52,7 +52,7 @@ export default function Post({ post }) {
           </div>
         ))}
       </footer>
-    </Layout>
+    </main>
   );
 }
 

@@ -1,4 +1,3 @@
-import { Layout } from "components";
 import { PostList } from "components/Layout/components";
 import { HeadingSlice } from "components/slices";
 
@@ -12,12 +11,10 @@ export default function PostPage({ postPage, posts }) {
     heading: HeadingSlice,
   };
   return (
-    <Layout>
-      <div className={`${styles.boxContainer} ${styles.page}`}>
-        <SliceZone slices={postPage.data.body} components={components} />
-        <PostList posts={posts} />
-      </div>
-    </Layout>
+    <div className={`${styles.boxContainer} ${styles.page}`}>
+      <SliceZone slices={postPage.data.body} components={components} />
+      <PostList posts={posts} />
+    </div>
   );
 }
 
