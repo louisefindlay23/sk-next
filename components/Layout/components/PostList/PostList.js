@@ -6,8 +6,8 @@ import Date from "components/Layout/components/Date/Date";
 import styles from "./PostList.module.css";
 
 function PostList({ posts }) {
-  const [showPosts, setPosts] = useState(posts.slice(2, 3));
-  const [postPage, setPostPage] = useState(3);
+  const [showPosts, setPosts] = useState(posts.slice(0, 1));
+  const [postPage, setPostPage] = useState(0);
 
   const getPreviousPosts = useCallback(() => {
     const previousPosts = posts.slice(postPage - 2, postPage - 1);
@@ -17,7 +17,7 @@ function PostList({ posts }) {
   }, [posts, postPage]);
 
   const getNextPosts = useCallback(() => {
-    const nextPosts = posts.slice(postPage + 2, postPage + 1);
+    const nextPosts = posts.slice(postPage + 1, postPage + 2);
     const nextPage = postPage + 1;
     setPosts(nextPosts);
     setPostPage(nextPage);
