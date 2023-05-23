@@ -1,4 +1,3 @@
-// TODO: Update all PrismicImage to use PrismicNextImage
 import { PrismicNextImage } from "@prismicio/next";
 import styles from "./Image.module.css";
 

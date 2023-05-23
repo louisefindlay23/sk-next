@@ -1,4 +1,5 @@
 import { PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 
 import Date from "components/Layout/components/Date/Date";
 import styles from "./RecentPosts.module.css";
@@ -21,7 +22,7 @@ function RecentPosts({ slice, context }) {
             />
           </div>
           <div className={styles.boxImage}>
-            <PrismicImage field={post.data.body[1].primary.image} />
+            <PrismicNextImage field={post.data.body[1].primary.image} />
           </div>
         </article>
       ))}

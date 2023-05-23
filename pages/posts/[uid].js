@@ -73,7 +73,6 @@ export async function getStaticProps({ params, previewData }) {
 }
 
 export async function getStaticPaths() {
-  // TODO: How do I use /post instead of /posts?
   const client = createClient();
   const posts = await client.getAllByType("posts");
   return {
