@@ -1,4 +1,4 @@
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
+import { PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/react";
 
 import Date from "components/Layout/components/Date/Date";
 import styles from "./RecentPosts.module.css";
@@ -12,9 +12,9 @@ function RecentPosts({ slice, context }) {
       {context.map((post) => (
         <article key={JSON.stringify(post)}>
           <div className={styles.boxContent}>
-            <a href="`/post/${post.uid}`">
+            <PrismicLink document={post}>
               <PrismicRichText field={post.data.body[0].primary.heading} />
-            </a>
+            </PrismicLink>
             <Date postDate={post.first_publication_date} />
             <PrismicRichText
               field={post.data.body[2].primary.text.slice(0, 1)}
