@@ -1,3 +1,4 @@
+import Select from "react-select";
 import Link from "next/link";
 import { useLocales } from "context/LocaleContext";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -9,14 +10,27 @@ const LangIcon = ({ lang }) => {
 
 export default function LanguageSelector() {
   const { currentLocales } = useLocales();
+  const options = currentLocales.map((locale) => ({
+    value: locale.lang_name,
+    label: (
+      <div>
+        <LangIcon lang={locale.lang} />
+        {locale.lang_name}
+      </div>
+    ),
+  }));
   return (
-    <ul>
-      {currentLocales.map((locale) => (
-        <li key={locale.id}>
-          <LangIcon lang={locale.lang} />
-          <Link href={locale.url}>{locale.lang_name}</Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Select
+        options={options}
+        defaultValue={options[0]}
+        styles={{
+          control: (provided) => ({
+            ...provided,
+            width: "300px",
+          }),
+        }}
+      />
+    </>
   );
 }
