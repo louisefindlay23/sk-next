@@ -45,15 +45,15 @@
   justify-content: center;
 }
 
-.Pagination button {
+.pagination button {
   margin-bottom: 2vw;
   padding: 1vw 3vw;
 }
 
-.Pagination button:first-of-type {
+.pagination button:first-of-type {
   margin-right: 2.5vw;
 }
 
-.Pagination button:last-of-type {
+.pagination button:last-of-type {
   margin-left: 2.5vw;
 }
