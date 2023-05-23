@@ -1,7 +1,9 @@
 import styles from "./Footer.module.css";
+import { useContext } from "react";
+import { SiteContext } from "context/SiteContext";
 
 export default function Footer() {
-  const siteTitle = "The Sock Kingdom";
+  const siteTitle = useContext(SiteContext);
   return (
     <footer className={styles.pageFooter}>
       <p>

@@ -1,9 +1,10 @@
 import Navigation from "./Navigation";
 import styles from "./Header.module.css";
-// TODO: Pass siteTitle using context
-const siteTitle = "The Sock Kingdom";
+import { useContext } from "react";
+import { SiteContext } from "context/SiteContext";
 
 export default function Header() {
+  const siteTitle = useContext(SiteContext);
   return (
     <header className={styles.pageHeader}>
       <a href="/">
