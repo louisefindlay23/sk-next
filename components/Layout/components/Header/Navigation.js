@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink } from "@prismicio/react";
 import { createClient } from "prismicio";
+
+import LanguageSelector from "../LanguageSelector";
+
 import styles from "./Header.module.css";
 
 export default function Navigation() {
@@ -30,7 +33,7 @@ export default function Navigation() {
             );
           })}
       </ul>
-      <ul className={styles.navList}></ul>
+      <LanguageSelector />
     </nav>
   );
 }

@@ -2,9 +2,6 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "prismicio";
 
 import { TextSlice, RecentPostsSlice } from "components/slices";
-import { LanguageSelector } from "components/Layout/components";
-
-import { LocaleProvider } from "context/LocaleContext";
 import { getLocales } from "lib/getLocales";
 
 export default function Home({ home, recentPosts, locales }) {
@@ -14,16 +11,13 @@ export default function Home({ home, recentPosts, locales }) {
     recent_posts: RecentPostsSlice,
   };
   return (
-    <LocaleProvider locales={locales}>
-      <main>
-        <SliceZone
-          slices={home.data.body}
-          components={components}
-          context={recentPosts}
-        />
-        <LanguageSelector />
-      </main>
-    </LocaleProvider>
+    <main>
+      <SliceZone
+        slices={home.data.body}
+        components={components}
+        context={recentPosts}
+      />
+    </main>
   );
 }
 

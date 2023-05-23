@@ -1,6 +1,9 @@
+import { Inter, Arvo } from "next/font/google";
+
 import { Layout } from "components";
 import { SiteProvider } from "context/SiteContext";
-import { Inter, Arvo } from "next/font/google";
+import { LocaleProvider } from "context/LocaleContext";
+
 import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -10,19 +13,22 @@ const arvo = Arvo({
 });
 
 export default function App({ Component, pageProps }) {
+  const { locales } = pageProps;
   return (
     <SiteProvider>
-      <Layout>
-        <style jsx global>
-          {`
-            :root {
-              --heading-font: ${arvo.style.fontFamily};
-              --body-font: ${inter.style.fontFamily};
-            }
-          `}
-        </style>
-        <Component {...pageProps} />
-      </Layout>
+      <LocaleProvider locales={locales}>
+        <Layout>
+          <style jsx global>
+            {`
+              :root {
+                --heading-font: ${arvo.style.fontFamily};
+                --body-font: ${inter.style.fontFamily};
+              }
+            `}
+          </style>
+          <Component {...pageProps} />
+        </Layout>
+      </LocaleProvider>
     </SiteProvider>
   );
 }
