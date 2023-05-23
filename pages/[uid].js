@@ -3,6 +3,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "prismicio";
 
 import { HeadingSlice, ImageSlice, TextSlice } from "components/slices";
+
 import { getLocales } from "lib/getLocales";
 
 export default function Page({ page }) {
