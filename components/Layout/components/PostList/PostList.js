@@ -1,4 +1,4 @@
-// TODO: Query all posts at once and then selectively return for Previous and Next buttons. Also, /page/1 etc. or ?page=1.
+// TODO: Use page variable contained in posts from Prismic to check how many pages exist in posts. Also, /page/1 etc. or ?page=1.
 import { useState, useCallback } from "react";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
@@ -8,12 +8,14 @@ import styles from "./PostList.module.css";
 function PostList({ posts }) {
   const [showPosts, setPosts] = useState(posts.slice(0, 1));
   const [postPage, setPostPage] = useState(0);
+  console.info(postPage);
 
   const getPreviousPosts = useCallback(() => {
-    const previousPosts = posts.slice(postPage - 2, postPage - 1);
+    const previousPosts = posts.slice(postPage - 1, postPage);
     const previousPage = postPage - 1;
     setPosts(previousPosts);
     setPostPage(previousPage);
+    console.info(postPage);
   }, [posts, postPage]);
 
   const getNextPosts = useCallback(() => {
@@ -21,6 +23,7 @@ function PostList({ posts }) {
     const nextPage = postPage + 1;
     setPosts(nextPosts);
     setPostPage(nextPage);
+    console.info(postPage);
   }, [posts, postPage]);
 
   return (
@@ -43,8 +46,12 @@ function PostList({ posts }) {
         </article>
       ))}
       <div className={styles.pagination}>
-        <button onClick={getPreviousPosts}>Previous</button>
-        <button onClick={getNextPosts}>Next</button>
+        <button onClick={getPreviousPosts} disabled={postPage === 0}>
+          Previous
+        </button>
+        <button onClick={getNextPosts} disabled={postPage === 2}>
+          Next
+        </button>
       </div>
     </>
   );
