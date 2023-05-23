@@ -8,7 +8,6 @@ import styles from "./PostList.module.css";
 function PostList({ posts }) {
   const [showPosts, setPosts] = useState(posts.slice(0, 1));
   const [postPage, setPostPage] = useState(0);
-  console.info(postPage);
 
   const getPreviousPosts = useCallback(() => {
     const previousPosts = posts.slice(postPage - 1, postPage);
@@ -49,7 +48,7 @@ function PostList({ posts }) {
         <button onClick={getPreviousPosts} disabled={postPage === 0}>
           Previous
         </button>
-        <button onClick={getNextPosts} disabled={postPage === 2}>
+        <button onClick={getNextPosts} disabled={postPage === posts.length - 1}>
           Next
         </button>
       </div>
