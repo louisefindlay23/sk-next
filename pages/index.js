@@ -4,7 +4,7 @@ import { createClient } from "prismicio";
 import { TextSlice, RecentPostsSlice } from "components/slices";
 import { getLocales } from "lib/getLocales";
 
-export default function Home({ home, recentPosts, locales }) {
+export default function Home({ home, recentPosts }) {
   const components = {
     text: TextSlice,
     recent_posts: RecentPostsSlice,

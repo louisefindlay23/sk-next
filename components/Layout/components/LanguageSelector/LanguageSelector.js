@@ -36,7 +36,7 @@ export default function LanguageSelector() {
       (locale) => locale.lang_name === selectedOption.value
     );
     console.info(
-      `Current url is: ${router.asPath} and new url will be ${selectedLocale.url}`
+      `Current url is: ${router.asPath} and new url will be ${selectedLocale.url}.`
     );
 
     //router.replace(selectedLocale.url).then(() => router.reload());

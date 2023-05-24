@@ -6,7 +6,7 @@ const repositoryName = "onboarding-content-management";
 const routes = [
   { type: "posts", path: "/:lang?/posts/:uid" },
   { type: "home", path: "/:lang?" },
-  { type: "pages", path: "/lang?/:uid" },
+  { type: "pages", path: "/:lang?/:uid" },
 ];
 
 export const createClient = (config = {}) => {
