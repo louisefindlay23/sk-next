@@ -1,4 +1,3 @@
-// TODO: Use page variable contained in posts from Prismic to check how many pages exist in posts. Also, /page/1 etc. or ?page=1.
 import { useState, useCallback } from "react";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
@@ -6,9 +5,11 @@ import Date from "components/Layout/components/Date/Date";
 import styles from "./PostList.module.css";
 
 function PostList({ posts }) {
+  /* Use first post as default */
   const [showPosts, setPosts] = useState(posts.slice(0, 1));
   const [postPage, setPostPage] = useState(0);
 
+  /* Get the last post */
   const getPreviousPosts = useCallback(() => {
     const previousPosts = posts.slice(postPage - 1, postPage);
     const previousPage = postPage - 1;
@@ -16,6 +17,7 @@ function PostList({ posts }) {
     setPostPage(previousPage);
   }, [posts, postPage]);
 
+  /* Get the next post */
   const getNextPosts = useCallback(() => {
     const nextPosts = posts.slice(postPage + 1, postPage + 2);
     const nextPage = postPage + 1;
@@ -42,6 +44,7 @@ function PostList({ posts }) {
           </div>
         </article>
       ))}
+      {/* Pagination buttons */}
       <div className={styles.pagination}>
         <button onClick={getPreviousPosts} disabled={postPage === 0}>
           Previous

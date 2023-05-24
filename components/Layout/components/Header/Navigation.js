@@ -28,7 +28,7 @@ export default function Navigation() {
   }
 
   const currentLocale = router.locale;
-  // Get locale.url somehow from pageprops like in Layout. The pass to PrismicNext
+  // TODO: Use PrismicLink somehow
 
   return (
     <nav className={styles.nav}>

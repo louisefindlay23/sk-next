@@ -7,6 +7,7 @@ import { useLocales } from "context/LocaleContext";
 import styles from "components/Layout/components/Header/Header.module.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
+/* Create country flag from flag-icons package */
 const LangIcon = ({ lang }) => {
   const langCode = lang.substring(3).toLowerCase();
   return <span className={`fi fi-${langCode}`} />;
@@ -16,6 +17,7 @@ export default function LanguageSelector() {
   const router = useRouter();
   const { currentLocales } = useLocales();
 
+  /* Set the react-select component's options with the locale values and label as the country flag and locale name */
   const options = currentLocales.map((locale) => ({
     value: locale.lang_name,
     label: (
@@ -28,6 +30,7 @@ export default function LanguageSelector() {
 
   const [selectedLocale, setSelectedLocale] = useState(options[0]);
 
+  /* Update the select with the new selected option and then retrieve the locale data and route to the document with the new locale */
   const switchLanguage = (selectedOption) => {
     setSelectedLocale(selectedOption);
 
@@ -37,8 +40,9 @@ export default function LanguageSelector() {
     console.info(
       `Current url is: ${router.asPath} and new url will be ${selectedLocale.url}.`
     );
-    router.push(selectedLocale.url);
-    //window.location.href = `${router.basePath}${selectedLocale.url}`;
+    // TODO: Use router instead of window.location
+    //router.push(selectedLocale.url);
+    window.location.href = `${router.basePath}${selectedLocale.url}`;
   };
 
   return (

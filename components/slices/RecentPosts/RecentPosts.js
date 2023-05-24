@@ -10,6 +10,7 @@ function RecentPosts({ slice, context }) {
       <section>
         <PrismicRichText field={slice.primary.post_heading} />
       </section>
+      {/* Map context prop passed to slice that contains the three most recent posts */}
       {context.map((post) => (
         <article key={JSON.stringify(post)}>
           <div className={styles.boxContent}>

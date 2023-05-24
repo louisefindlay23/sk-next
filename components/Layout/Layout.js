@@ -6,6 +6,7 @@ import { Footer, Header } from "./components";
 import { SiteContext } from "context/SiteContext";
 
 export default function Layout({ children }) {
+  /* Use siteContex to set siteTitle */
   const siteTitle = useContext(SiteContext);
   return (
     <>
