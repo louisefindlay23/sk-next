@@ -5,7 +5,6 @@ import { TextSlice, RecentPostsSlice } from "components/slices";
 import { getLocales } from "lib/getLocales";
 
 export default function Home({ home, recentPosts, locales }) {
-  console.info(locales);
   const components = {
     text: TextSlice,
     recent_posts: RecentPostsSlice,

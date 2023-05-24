@@ -14,7 +14,6 @@ function PostList({ posts }) {
     const previousPage = postPage - 1;
     setPosts(previousPosts);
     setPostPage(previousPage);
-    console.info(postPage);
   }, [posts, postPage]);
 
   const getNextPosts = useCallback(() => {
@@ -22,7 +21,6 @@ function PostList({ posts }) {
     const nextPage = postPage + 1;
     setPosts(nextPosts);
     setPostPage(nextPage);
-    console.info(postPage);
   }, [posts, postPage]);
 
   return (

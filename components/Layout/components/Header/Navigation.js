@@ -19,6 +19,10 @@ export default function Navigation() {
     getNavigation();
   }, []);
 
+  if (!navigation) {
+    return null;
+  }
+
   return (
     <nav>
       <ul className={styles.navList}>
