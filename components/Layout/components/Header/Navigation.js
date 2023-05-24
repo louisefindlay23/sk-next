@@ -28,8 +28,6 @@ export default function Navigation() {
   }
 
   const currentLocale = router.locale;
-  console.info(currentLocale);
-  // TODO: Use PrismicNextLink everywhere
 
   return (
     <nav className={styles.nav}>

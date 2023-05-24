@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Date from "components/Layout/components/Date/Date";
 import styles from "./PostList.module.css";
 
@@ -30,9 +30,9 @@ function PostList({ posts }) {
       {showPosts.map((post) => (
         <article key={JSON.stringify(post.data)}>
           <div className={styles.boxContent}>
-            <PrismicLink document={post}>
+            <PrismicNextLink document={post}>
               <PrismicRichText field={post.data.body[0].primary.heading} />
-            </PrismicLink>
+            </PrismicNextLink>
             <Date postDate={post.first_publication_date} />
             {/* Slice the post's first paragraph for the excerpt */}
             <PrismicRichText

@@ -1,5 +1,5 @@
-import { SliceZone, PrismicRichText, PrismicLink } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import { SliceZone, PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "prismicio";
@@ -39,13 +39,13 @@ export default function Post({ post }) {
               <PrismicRichText
                 field={author.author_relationship.data.author_bio}
               />
-              <PrismicLink
+              <PrismicNextLink
                 field={author.author_relationship.data.author_website_link}
               >
                 {prismicH.asText(
                   author.author_relationship.data.author_website_text
                 )}
-              </PrismicLink>
+              </PrismicNextLink>
             </div>
             <div className={styles.boxImage}>
               <PrismicNextImage
