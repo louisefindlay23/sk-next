@@ -6,8 +6,20 @@
 }
 
 /* Nav Styles */
+.nav,
 .navList {
   display: flex;
   justify-content: space-around;
+}
+
+.navList {
+  width: 100%;
   list-style-type: none;
+}
+
+.languageSelect {
+  display: flex;
+  align-items: center;
+  height: auto;
+  text-align: center;
 }
