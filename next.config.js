@@ -5,19 +5,11 @@ module.exports = async () => {
   const client = prismic.createClient("onboarding-content-management");
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
-  return Promise.resolve({
-    redirects: async () => {
-      return [
-        {
-          source: "/post",
-          destination: "/posts",
-          permanent: true,
-        },
-      ];
-    },
+  return {
     i18n: {
       locales,
+      // This is the default locale. It will not be included in URLs.
       defaultLocale: locales[0],
     },
-  });
+  };
 };

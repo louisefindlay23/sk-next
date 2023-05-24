@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import * as prismicH from "@prismicio/helpers";
-import { PrismicLink } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
 import { createClient } from "prismicio";
 
 import LanguageSelector from "../LanguageSelector";
@@ -28,7 +28,8 @@ export default function Navigation() {
   }
 
   const currentLocale = router.locale;
-  // TODO: Use PrismicLink somehow
+  console.info(currentLocale);
+  // TODO: Use PrismicNextLink everywhere
 
   return (
     <nav className={styles.nav}>
@@ -37,15 +38,9 @@ export default function Navigation() {
           navigation.data.menu.map((link) => {
             return (
               <li key={JSON.stringify(link)}>
-                {currentLocale != "en-us" ? (
-                  <a href={`/${currentLocale}${link.link_url.url}`}>
-                    {prismicH.asText(link.link_text)}
-                  </a>
-                ) : (
-                  <PrismicLink field={link.link_url}>
-                    {prismicH.asText(link.link_text)}
-                  </PrismicLink>
-                )}
+                <PrismicNextLink field={link.link_url} locale={currentLocale}>
+                  {prismicH.asText(link.link_text)}
+                </PrismicNextLink>
               </li>
             );
           })}

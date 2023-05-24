@@ -37,12 +37,9 @@ export default function LanguageSelector() {
     const selectedLocale = currentLocales.find(
       (locale) => locale.lang_name === selectedOption.value
     );
-    console.info(
-      `Current url is: ${router.asPath} and new url will be ${selectedLocale.url}.`
-    );
-    // TODO: Use router instead of window.location
-    //router.push(selectedLocale.url);
-    window.location.href = `${router.basePath}${selectedLocale.url}`;
+
+    /* Push the current path with the selected locale */
+    router.push(router.asPath, null, { locale: selectedLocale.lang });
   };
 
   return (
