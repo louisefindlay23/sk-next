@@ -81,7 +81,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const posts = await client.getAllByType("posts", { lang: "*" });
   return {
-    paths: posts.map((post) => prismicH.asLink(post)),
-    fallback: true,
+    paths: posts.map((post) => post.url),
+    fallback: false,
   };
 }

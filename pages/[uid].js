@@ -1,5 +1,4 @@
 import { SliceZone } from "@prismicio/react";
-import * as prismicH from "@prismicio/helpers";
 import { createClient } from "prismicio";
 
 import { HeadingSlice, ImageSlice, TextSlice } from "components/slices";
@@ -32,7 +31,7 @@ export async function getStaticPaths() {
   const client = createClient();
   const pages = await client.getAllByType("pages", { lang: "*" });
   return {
-    paths: pages.map((page) => prismicH.asLink(page)),
-    fallback: true,
+    paths: pages.map((page) => page.url),
+    fallback: false,
   };
 }
