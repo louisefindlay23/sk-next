@@ -12,7 +12,7 @@ import {
   CodeSlice,
 } from "components/slices";
 
-import styles from "./Post.module.css";
+import styles from "styles/Post.module.css";
 
 export default function Post({ post }) {
   const components = {
