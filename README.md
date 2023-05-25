@@ -1,38 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## The Sock Kingdom - A Next.js Prismic Site
 
-## Getting Started
+### Purpose
 
-First, run the development server:
+Develop a basic website using Prismic and Next.js that uses layouts, dynamic routes, and file-based routing. Also, internationlize content using Prismic locales and create a language switcher.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### About the website
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Sock Kingdom website contains three blog posts about buying socks which are displayed on the homepage using a Recent Posts slice. There is also a Posts page which uses pagination to show all blog posts.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The HTML serializer was used to render `h2` elements as Pig Latin via the [`piglatin`](https://github.com/montanaflynn/piglatin) module and code snippet field as a `code` element via the codespan custom label.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Other modules used included [`date-fns`](https://date-fns.org) to render the blog post publication date, [`react-select`](https://react-select.com/home) to create the language switcher select element, and [`flag-icons`](https://www.npmjs.com/package/flag-icons) to display the language icons.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The blog post content was generated via [ChatGPT](https://openai.com/blog/chatgpt) and author profiles using [AI Writer](https://tools.picsart.com/text/ai-writer). All blog post images were taken from [Unsplash](https://unsplash.com).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Screenshot
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![The Sock Kingdom Website screenshot](https://github.com/louisefindlay23/sk-next/assets/26024131/f90a3b4b-94ad-452c-9188-617e3717fda9)
